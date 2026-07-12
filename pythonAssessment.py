@@ -6,7 +6,7 @@ def count_specific_word(text, word):
     if text == "" or word == "":
         return 0
 
-    # find all words in the text (letters and apostrophes only)
+    # find all words in the text 
     word_list = re.findall(r"[A-Za-z']+", text.lower())
     word = word.lower()
 
@@ -67,7 +67,7 @@ def count_paragraphs(text):
     if text.strip() == "":
         return 1
 
-    # split on blank lines (one or more newlines with just whitespace between)
+    # split on blank lines 
     chunks = re.split(r"\n\s*\n", text.strip())
 
     count = 0
@@ -85,7 +85,7 @@ def count_sentences(text):
     if text.strip() == "":
         return 1
 
-    # split on ., !, or ? (one or more in a row counts as one break)
+    # split on ., !, or ? 
     pieces = re.split(r"[.!?]+", text)
 
     count = 0
@@ -98,11 +98,6 @@ def count_sentences(text):
 
     return count
 
-
-# ---- main program ----
-# this only runs when the file is run directly, not when it is imported
-# (CodeGrade imports this file to test the functions, so this code
-# must not run automatically on import)
 
 if __name__ == "__main__":
     file = open("news_article.txt", "r")
